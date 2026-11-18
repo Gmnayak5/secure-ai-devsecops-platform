@@ -34,16 +34,11 @@ Regular Expressions (Anchors & Patterns)
 18. Match lines containing any 4-digit number (extended regex -E): ``` grep -E "[0-9]{4}" file.txt ```
 19. Match either alice or bob using OR (|): ``` grep -E "alice|bob" file.txt ```
 20. Match any line containing a file path: ``` grep -E "/[a-z]+/[a-z]+" file.txt ```
-
-Multi-File & Pipeline Usage
-
 21. Display only the filename if a match is found: ``` grep -l "failed" *.txt ```
 22. Display filenames that do NOT contain the pattern: ``` grep -L "failed" *.txt ```
 23. Search recursively through all files in the current directory: ``` grep -r "alice" . ```
 24. Suppress error messages for unreadable/missing files: ``` grep -s "alice" file.txt missing.txt ```
 25. Filter output from another command via pipe: ``` cat file.txt | grep "user" |  grep -v "guest" ```
-
-System & Process Monitoring
 
 27. Find if a specific program (e.g., Nginx) is running: ``` ps aux | grep nginx ```
 28. Check which process is listening on port 8080: ``` ss -tulnp | grep 8080 ```
@@ -56,7 +51,6 @@ System & Process Monitoring
 35. Count how many times a specific IP hit your web server: ``` grep -c "192.168.1.50" /var/log/nginx/access.log ```
 36. See 5 lines before and after a kernel panic message: ``` grep -C 5 "panic" /var/log/kern.log ```
 
-Find all critical errors in the system log:
 38. Find all critical errors in the system log: ``` grep -i "error" /var/log/syslog ```
 39. Monitor a live log file in real time for failures: ``` tail -f /var/log/nginx/access.log | grep "500" ```
 40. Find failed SSH login attempts in auth logs ``` grep "Failed password" /var/log/auth.log ```
