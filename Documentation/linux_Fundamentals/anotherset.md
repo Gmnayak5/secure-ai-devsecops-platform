@@ -158,51 +158,78 @@ Use code with caution.
 9. Iterate over all elements in an array:
 ```bash jq '.nodes[]' data.json    ```
 10. Extract a specific field (id) from every object in an array
-    ```bash
-jq -r '.nodes[].id' data.json ```
+```bash jq -r '.nodes[].id' data.json ```
 Use code with caution.
 12. Count the number of elements in an array
 ```bash
 jq '.nodes | length' data.json ```
 Use code with caution.
-13. Filter array objects where status equals "Ready"```bash
-jq '.nodes[] | select(.status == "Ready")' data.json ```
+13. Filter array objects where status equals "Ready"
+```bash
+jq '.nodes[] | select(.status == "Ready")' data.json
+```
 Use code with caution.
-14. Filter nodes with CPU usage greater than 50 and print only their IDs```bash
-jq -r '.nodes[] | select(.cpu > 50) | .id' data.json ```
+14. Filter nodes with CPU usage greater than 50 and print only their IDs
+```bash
+jq -r '.nodes[] | select(.cpu > 50) | .id' data.json
+```
 Use code with caution.
-15. Filter nodes that contain "db" in their tags array```bash
-jq -r '.nodes[] | select(.tags | contains(["db"])) | .id' data.json ```
+15. Filter nodes that contain "db" in their tags array
+```bash
+jq -r '.nodes[] | select(.tags | contains(["db"])) | .id' data.json
+```
 Use code with caution.
-16. Construct a new simplified JSON object for each node```bash
-jq '[.nodes[] | {node: .id, healthy: (.status == "Ready")}]' data.json ```
+16. Construct a new simplified JSON object for each node
+```bash
+jq '[.nodes[] | {node: .id, healthy: (.status == "Ready")}]' data.json
+```
 Use code with caution.
-17. Format extracted JSON fields into a clean CSV string```bash
-jq -r '.nodes[] | [.id, .cpu, .status] | @csv' data.json ```
+17. Format extracted JSON fields into a clean CSV string
+```bash
+jq -r '.nodes[] | [.id, .cpu, .status] | @csv' data.json
+```
 Use code with caution.
-18. Format extracted JSON fields into tab-separated values (@tsv)```bash
-jq -r '.nodes[] | [.id, .memory_gb, .status] | @tsv' data.json ```
+18. Format extracted JSON fields into tab-separated values (@tsv)
+```bash
+jq -r '.nodes[] | [.id, .memory_gb, .status] | @tsv' data.json
+```
 Use code with caution.
-19. Calculate the total memory_gb across all nodes```bash
-jq '[.nodes[].memory_gb] | add' data.json ```
+19. Calculate the total memory_gb across all nodes
+```bash
+jq '[.nodes[].memory_gb] | add' data.json
+```
 Use code with caution.
-20. Find the node with the highest CPU usage```bash
-jq '.nodes | max_by(.cpu)' data.json ```
+20. Find the node with the highest CPU usage
+```bash
+jq '.nodes | max_by(.cpu)' data.json
+```
 Use code with caution.
-21. Sort nodes by CPU usage in ascending order```bash
-jq '.nodes | sort_by(.cpu)' data.json ```
+21. Sort nodes by CPU usage in ascending order
+```bash
+jq '.nodes | sort_by(.cpu)' data.json
+```
 Use code with caution.
-22. Update a field value in the JSON output```bash
-jq '.deployments.frontend.replicas = 6' data.json ```
+22. Update a field value in the JSON output
+```bash
+jq '.deployments.frontend.replicas = 6' data.json
+```
 Use code with caution.
-23. Delete a key from the JSON output```bash
-jq 'del(.active)' data.json ```
+23. Delete a key from the JSON output
+```bash
+jq 'del(.active)' data.json
+```
 Use code with caution.
-24. Provide a fallback default value if a key is missing or null (//)```bash
-jq -r '.region // "ap-south-1"' data.json ```
+24. Provide a fallback default value if a key is missing or null (//)
+```bash
+jq -r '.region // "ap-south-1"' data.json
+```
 Use code with caution.
-25. Pass a shell variable safely into a jq filter using --arg```bash
-jq --arg st "NotReady" '.nodes[] | select(.status == $st)' data.json ```
+25. Pass a shell variable safely into a jq filter using --arg
+```bash
+jq --arg st "NotReady" '.nodes[] | select(.status == $st)' data.json
+```
 Use code with caution.
-26. Pipe live curl JSON API output directly into jq```bash
-curl -s https://github.com | jq '{name: .full_name, stars: .stargazers_count}' ```
+26. Pipe live curl JSON API output directly into jq
+```bash
+curl -s https://github.com | jq '{name: .full_name, stars: .stargazers_count}'
+```
