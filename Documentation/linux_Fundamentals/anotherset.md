@@ -162,7 +162,9 @@ Use code with caution.
 Use code with caution.
 12. Count the number of elements in an array
 ```bash
-jq '.nodes | length' data.json ```
+jq '.nodes | length' data.json
+
+```
 Use code with caution.
 13. Filter array objects where status equals "Ready"
 ```bash
