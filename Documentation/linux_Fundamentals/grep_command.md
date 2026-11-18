@@ -46,11 +46,10 @@ Multi-File & Pipeline Usage
 
 
 Real-World grep Examples (Without file.txt)
-
-1. System & Process Monitoring
-• Find if a specific program (e.g., Nginx) is running:
+System & Process Monitoring
+26. Find if a specific program (e.g., Nginx) is running:
 ``` ps aux | grep nginx ```
-• Check which process is listening on port 8080:
+27. Check which process is listening on port 8080:
 ``` ss -tulnp | grep 8080 ```
 • Check if a specific package is installed (Debian/Ubuntu):
 ```dpkg -l | grep python3 ```
