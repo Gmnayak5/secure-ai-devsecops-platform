@@ -43,43 +43,36 @@ Multi-File & Pipeline Usage
 24. Suppress error messages for unreadable/missing files: ``` grep -s "alice" file.txt missing.txt ```
 25. Filter output from another command via pipe: ``` cat file.txt | grep "user" |  grep -v "guest" ```
 
-
-
-Real-World grep Examples (Without file.txt)
 System & Process Monitoring
-26. Find if a specific program (e.g., Nginx) is running:
-``` ps aux | grep nginx ```
-27. Check which process is listening on port 8080:
-``` ss -tulnp | grep 8080 ```
-• Check if a specific package is installed (Debian/Ubuntu):
-```dpkg -l | grep python3 ```
-• Check if a specific package is installed (RHEL/CentOS):
-```rpm -qa | grep openssl ```
-• Check USB devices connected to the system:
-``` lsusb | grep -i "keyboard" ```
 
-3. Log Analysis & Troubleshooting
-• Find all critical errors in the system log:
-``` grep -i "error" /var/log/syslog ```
-• Monitor a live log file in real time for failures:
-``` tail -f /var/log/nginx/access.log | grep "500" ```
-• Find failed SSH login attempts in auth logs:
-``` grep "Failed password" /var/log/auth.log ```
-• Count how many times a specific IP hit your web server:
-``` grep -c "192.168.1.50" /var/log/nginx/access.log ```
-• See 5 lines before and after a kernel panic message:
-``` grep -C 5 "panic" /var/log/kern.log ```
+27. Find if a specific program (e.g., Nginx) is running: ``` ps aux | grep nginx ```
+28. Check which process is listening on port 8080: ``` ss -tulnp | grep 8080 ```
+29. Check if a specific package is installed (Debian/Ubuntu): ```dpkg -l | grep python3 ```
+30. Check if a specific package is installed (RHEL/CentOS): ```rpm -qa | grep openssl ```
+31. Check USB devices connected to the system: ``` lsusb | grep -i "keyboard" ```
+32. Find all critical errors in the system log: ``` grep -i "error" /var/log/syslog ```
+33. Monitor a live log file in real time for failures: ``` tail -f /var/log/nginx/access.log | grep "500" ```
+34. Find failed SSH login attempts in auth logs: ``` grep "Failed password" /var/log/auth.log ```
+35. Count how many times a specific IP hit your web server: ``` grep -c "192.168.1.50" /var/log/nginx/access.log ```
+36. See 5 lines before and after a kernel panic message: ``` grep -C 5 "panic" /var/log/kern.log ```
+
+Find all critical errors in the system log:
+38. Find all critical errors in the system log: ``` grep -i "error" /var/log/syslog ```
+39. Monitor a live log file in real time for failures: ``` tail -f /var/log/nginx/access.log | grep "500" ```
+40. Find failed SSH login attempts in auth logs ``` grep "Failed password" /var/log/auth.log ```
+41. Count how many times a specific IP hit your web server ``` grep -c "192.168.1.50" /var/log/nginx/access.log ```
+42. See 5 lines before and after a kernel panic message ``` grep -C 5 "panic" /var/log/kern.log ```
+43.Find every file in a project containing a specific function: ``` grep -rnw '/path/to/project' -e 'authenticateUser' ```
+Search for TODO comments while ignoring .git and node_modules: ``` grep -rn --exclude-dir={.git,node_modules} "TODO" . ```
+Search only inside .py (Python) files: ``` grep -rn --include="*.py" "import requests" . ```
+
 
 3. Searching Codebases & Directories
 
-• Find every file in a project containing a specific function: 
-``` grep -rnw '/path/to/project' -e 'authenticateUser' ```
-• Search for TODO comments while ignoring .git and node_modules: 
-``` grep -rn --exclude-dir={.git,node_modules} "TODO" . ```
-• Search only inside .py (Python) files: 
-``` grep -rn --include="*.py" "import requests" . ```
-• Find hardcoded IP addresses across a codebase: 
-``` grep -rnE "[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}" src/ ```
+Find every file in a project containing a specific function: ``` grep -rnw '/path/to/project' -e 'authenticateUser' ```
+Search for TODO comments while ignoring .git and node_modules: ``` grep -rn --exclude-dir={.git,node_modules} "TODO" . ```
+Search only inside .py (Python) files: ``` grep -rn --include="*.py" "import requests" . ```
+Find hardcoded IP addresses across a codebase: ``` grep -rnE "[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}" src/ ```
 
 4. Reading Clean Configuration Files
 
