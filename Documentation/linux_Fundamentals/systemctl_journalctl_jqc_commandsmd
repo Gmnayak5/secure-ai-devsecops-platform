@@ -196,12 +196,13 @@ jq '.nodes[-1]' data.json
 jq '.nodes[]' data.json
 ```
 19. Extract a specific field (id) from every object in an array
-```bash jq -r '.nodes[].id' data.json ```
+```bash
+jq -r '.nodes[].id' data.json 
+```
 Use code with caution.
 20. Count the number of elements in an array
 ```bash
 jq '.nodes | length' data.json
-
 ```
 Use code with caution.
 13. Filter array objects where status equals "Ready"
