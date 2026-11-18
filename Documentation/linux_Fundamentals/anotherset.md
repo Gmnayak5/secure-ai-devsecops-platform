@@ -40,27 +40,47 @@ sudo systemctl reset-failed nginx
 4. journalctl (Systemd Log Viewer) — 25 Examples
 
 1. View all system logs from oldest to newest:
-```bash journalctl    ```
-2. Jump straight to the newest log entries (-e = end):
-```bash journalctl -xe    ```
-3. Follow live log output in real time (like tail -f):
-```bash journalctl -f   ``` 
-4. View logs for a specific service (e.g., nginx or docker):
-```bash journalctl -u nginx.service  ```  
-5. Follow live logs for a specific service:
-```bash journalctl -u docker.service -f   ```  
-6. Combine logs from multiple services in chronological order:
-```bash journalctl -u nginx.service -u php-fpm.service  ```  
-7. Show logs from the current boot session only:
-```bash journalctl -b    ```
-8. Show logs from the previous boot session (crucial after a server crash/reboot):
-```bash journalctl -b -1    ```
-9. List all recorded boot sessions with their timestamps:
-```bash journalctl --list-boots    ```
-10. Filter logs since a relative time window```bash
-journalctl --since "15 minutes ago" ```
+```bash
+journalctl
+```
+3. Jump straight to the newest log entries (-e = end):
+```bash
+journalctl -xe
+```
+5. Follow live log output in real time (like tail -f):
+```bash
+journalctl -f
+``` 
+7. View logs for a specific service (e.g., nginx or docker):
+```bash
+journalctl -u nginx.service
+```  
+9. Follow live logs for a specific service:
+```bash
+journalctl -u docker.service -f
+```  
+11. Combine logs from multiple services in chronological order:
+```bash
+journalctl -u nginx.service -u php-fpm.service
+```  
+13. Show logs from the current boot session only:
+```bash
+journalctl -b
+```
+15. Show logs from the previous boot session (crucial after a server crash/reboot):
+```bash
+journalctl -b -1
+```
+17. List all recorded boot sessions with their timestamps:
+```bash
+journalctl --list-boots
+```
+19. Filter logs since a relative time window
+```bash
+journalctl --since "15 minutes ago"
+```
 Use code with caution.
-11. Filter logs between two exact timestamps:
+21. Filter logs between two exact timestamps:
 ```bash
 journalctl --since "2026-11-12 10:00:00" --until "2026-11-12 11:30:00"
 ```
