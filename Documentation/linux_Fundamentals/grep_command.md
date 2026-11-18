@@ -55,24 +55,43 @@ Regular Expressions (Anchors & Patterns)
 39. Monitor a live log file in real time for failures: ``` tail -f /var/log/nginx/access.log | grep "500" ```
 40. Find failed SSH login attempts in auth logs ``` grep "Failed password" /var/log/auth.log ```
 41. Count how many times a specific IP hit your web server ``` grep -c "192.168.1.50" /var/log/nginx/access.log ```
+
 42. See 5 lines before and after a kernel panic message ``` grep -C 5 "panic" /var/log/kern.log ```
-43.Find every file in a project containing a specific function: ``` grep -rnw '/path/to/project' -e 'authenticateUser' ```
-Search for TODO comments while ignoring .git and node_modules: ``` grep -rn --exclude-dir={.git,node_modules} "TODO" . ```
-Search only inside .py (Python) files: ``` grep -rn --include="*.py" "import requests" . ```
+43. Find every file in a project containing a specific function: ``` grep -rnw '/path/to/project' -e 'authenticateUser' ```
+44. Search for TODO comments while ignoring .git and node_modules: ``` grep -rn --exclude-dir={.git,node_modules} "TODO" . ```
+45. Search only inside .py (Python) files: ``` grep -rn --include="*.py" "import requests" . ```
 
 
 3. Searching Codebases & Directories
 
-Find every file in a project containing a specific function: ``` grep -rnw '/path/to/project' -e 'authenticateUser' ```
-Search for TODO comments while ignoring .git and node_modules: ``` grep -rn --exclude-dir={.git,node_modules} "TODO" . ```
-Search only inside .py (Python) files: ``` grep -rn --include="*.py" "import requests" . ```
-Find hardcoded IP addresses across a codebase: ``` grep -rnE "[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}" src/ ```
+Find every file in a project containing a specific function: 
+```bash
+grep -rnw '/path/to/project' -e 'authenticateUser' 
+```
+Search for TODO comments while ignoring .git and node_modules: 
+```bash 
+grep -rn --exclude-dir={.git,node_modules} "TODO" .
+```
+Search only inside .py (Python) files: 
+```bash
+grep -rn --include="*.py" "import requests" .
+```
+Find hardcoded IP addresses across a codebase: 
+```bash
+grep -rnE "[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}" src/ 
+```
 
 4. Reading Clean Configuration Files
 
 • View active SSH server settings without comments or empty lines: 
-``` grep -vE "^#|^$" /etc/ssh/sshd_config ```
+```bash 
+grep -vE "^#|^$" /etc/ssh/sshd_config
+```
 • Check the exact CPU model name on a Linux machine: 
-``` grep "model name" /proc/cpuinfo | head -n 1 ```
+```bash 
+grep "model name" /proc/cpuinfo | head -n 1
+```
 • Check total RAM in /proc/meminfo: 
-``` grep "MemTotal" /proc/meminfo ```
+```bash
+grep "MemTotal" /proc/meminfo
+```
