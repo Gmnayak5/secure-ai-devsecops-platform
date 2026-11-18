@@ -160,27 +160,45 @@ Use code with caution.
 
 (All examples below use the data.json file created at the top of this section.)
 1. Pretty-print and colorize a JSON file:
-```bash jq '.' data.json    ```
-2. Compact JSON output onto a single line (remove whitespace):
-```bash jq -c '.' data.json  ```  
-3. Extract a top-level string value:
-```bash jq '.environment' data.json   ``` 
-4. Extract a value without surrounding double quotes (-r = raw output):
-```bash jq -r '.cluster' data.json  ```  
-5. Extract nested object fields:
-```bash jq '.deployments.backend.image' data.json    ```
-6. List all top-level keys in a JSON object:
-```bash jq 'keys' data.json    ```
-7. Get the first element of an array:
-```bash jq '.nodes[0]' data.json    ```
-8. Get the last element of an array:
-```bash jq '.nodes[-1]' data.json    ```
-9. Iterate over all elements in an array:
-```bash jq '.nodes[]' data.json    ```
-10. Extract a specific field (id) from every object in an array
+```bash
+jq '.' data.json
+```
+3. Compact JSON output onto a single line (remove whitespace):
+```bash
+jq -c '.' data.json
+```  
+5. Extract a top-level string value:
+```bash
+jq '.environment' data.json
+``` 
+7. Extract a value without surrounding double quotes (-r = raw output):
+```bash
+jq -r '.cluster' data.json
+```  
+9. Extract nested object fields:
+```bash
+jq '.deployments.backend.image' data.json
+```
+11. List all top-level keys in a JSON object:
+```bash
+jq 'keys' data.json
+```
+13. Get the first element of an array:
+```bash
+jq '.nodes[0]' data.json
+```
+15. Get the last element of an array:
+```bash
+jq '.nodes[-1]' data.json
+```
+17. Iterate over all elements in an array:
+```bash
+jq '.nodes[]' data.json
+```
+19. Extract a specific field (id) from every object in an array
 ```bash jq -r '.nodes[].id' data.json ```
 Use code with caution.
-12. Count the number of elements in an array
+20. Count the number of elements in an array
 ```bash
 jq '.nodes | length' data.json
 
